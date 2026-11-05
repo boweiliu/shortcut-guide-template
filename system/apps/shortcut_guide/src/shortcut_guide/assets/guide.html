@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shortcut Guide</title>
+  <style>
+    :root { font-family: ui-sans-serif, system-ui, sans-serif; color: #162a2b; background: #f6f1e7; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: inherit; }
+    .wrap { max-width: 1120px; margin: auto; padding: 28px 38px 60px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 26px; border-bottom: 1px solid #d9d8cb; }
+    .brand { font-size: 13px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .pill { border: 1px solid #a5afa7; border-radius: 20px; padding: 7px 12px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+    main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, .88fr); gap: 56px; padding-top: 48px; align-items: start; }
+    .eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #956448; }
+    h1 { font-size: clamp(37px, 5vw, 67px); letter-spacing: -.065em; line-height: 1.04; margin: 16px 0 18px; max-width: 680px; }
+    .lead { font-size: 18px; line-height: 1.55; color: #435653; max-width: 570px; }
+    .keys { display: flex; align-items: center; gap: 9px; margin: 29px 0 16px; }
+    kbd { display: inline-flex; align-items: center; justify-content: center; min-width: 74px; height: 50px; border: 1px solid #87938a; border-bottom-width: 4px; border-radius: 11px; background: #fffdfa; font: 700 17px ui-sans-serif, system-ui, sans-serif; box-shadow: 0 4px 0 #d4d9cf; }
+    .arrow { color: #9d6b4d; font-size: 24px; margin: 0 7px; }
+    .result { font-weight: 800; font-size: 16px; }
+    .caveat { font-size: 13px; line-height: 1.5; color: #64716b; max-width: 520px; }
+    .panel { background: #0d3030; border-radius: 22px; color: #f2f2e7; padding: 18px; box-shadow: 0 22px 48px #0b292b24; }
+    .panel-top { display: flex; gap: 7px; align-items: center; padding: 2px 4px 16px; color: #adc3b8; font-size: 12px; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: #e69c87; }
+    .dot:nth-child(2) { background: #e8cb78; }.dot:nth-child(3) { background: #9ac49c; }
+    .panel-top span:last-child { margin-left: auto; }
+    .machine { padding: 20px; background: #f8f4e9; color: #14312e; border-radius: 14px; }
+    .machine small { display: block; color: #758079; margin-bottom: 10px; font-weight: 700; }
+    .machine strong { font-size: 19px; }
+    .tabs { display: flex; gap: 7px; margin: 19px 0 0; }
+    .tab { border: 1px solid #d6dad0; color: #5a6760; padding: 9px 12px; border-radius: 8px 8px 0 0; font-size: 13px; }
+    .tab.on { background: #e4d79b; border-color: #c6b87c; color: #263b2e; font-weight: 800; }
+    .chat { border: 1px solid #c6b87c; background: white; min-height: 155px; padding: 19px; border-radius: 0 8px 8px 8px; }
+    .chat p { color: #586760; font-size: 14px; margin: 9px 0 22px; }
+    .compose { border: 1px solid #d9dfd9; color: #879189; font-size: 13px; padding: 10px 12px; border-radius: 8px; }
+    .panel-note { color: #a9c0b5; font-size: 13px; line-height: 1.45; margin: 16px 3px 3px; }
+    .section { border-top: 1px solid #d9d8cb; margin-top: 48px; padding-top: 26px; }
+    h2 { font-size: 26px; letter-spacing: -.035em; margin: 0 0 20px; }
+    .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .item { border-left: 3px solid #c0a86e; padding-left: 16px; }
+    .item b { display: block; font-size: 15px; margin-bottom: 7px; }
+    .item p { color: #56665d; font-size: 14px; line-height: 1.5; margin: 0; }
+    .footer { display: flex; flex-wrap: wrap; gap: 20px; font-size: 13px; font-weight: 700; padding-top: 22px; }
+    .walk { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .walk button { text-align: left; border: 1px solid #c8d0c7; border-radius: 12px; background: #fffcf5; color: #28403a; padding: 14px; cursor: pointer; font: inherit; font-size: 13px; line-height: 1.45; }
+    .walk button strong { display: block; font-size: 15px; margin-top: 5px; }
+    .walk button[aria-pressed="true"] { border-color: #0b292b; background: #e9e4c2; box-shadow: inset 0 0 0 1px #0b292b; }
+    .walk button:focus-visible { outline: 3px solid #d26645; outline-offset: 3px; }
+    .walk-desc { min-height: 44px; margin: 15px 0 0; color: #56665d; font-size: 14px; line-height: 1.5; }
+    .stage-badge { display: inline-block; background: #e4d79b; color: #18312d; font-size: 12px; font-weight: 800; padding: 5px 9px; border-radius: 6px; margin-bottom: 12px; }
+    @media (max-width: 760px) { .wrap { padding: 22px; } main { grid-template-columns: 1fr; gap: 22px; padding-top: 30px; } .three, .walk { grid-template-columns: 1fr; } h1 { font-size: 42px; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header><div class="brand">Studio / Shortcut guide</div><div class="pill">Mac prototype · not a shipped feature</div></header>
+    <main>
+      <section>
+        <div class="eyebrow">Return to the conversation</div>
+        <h1>One key press back to the right chat.</h1>
+        <p class="lead">From any Mac app, Option+N brings Studio forward and raises chat in the machine you selected. Press it again and the same chat comes back.</p>
+        <div class="keys"><kbd>Option</kbd><span>+</span><kbd>N</kbd><span class="arrow">→</span><span class="result">Current machine’s chat</span></div>
+        <p class="caveat">The working prototype raises chat. It does not open a new note or place the typing cursor in the chat box.</p>
+      </section>
+      <aside class="panel" aria-label="Illustration of the result">
+        <div class="panel-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span>Illustrated result</span></div>
+        <div class="machine"><small>IMBUE STUDIO / CURRENT MACHINE</small><strong>Workspace-1</strong><div class="tabs"><div class="tab" id="browser-tab">Browser</div><div class="tab on" id="chat-tab">Chat</div><div class="tab">Files</div></div><div class="chat"><span class="stage-badge" id="stage-badge">3 / Chat is raised</span><br><strong id="stage-title">Chat is in front</strong><p id="stage-copy">Your existing conversation is still here.</p><div class="compose" id="composer">Click here before typing…</div></div></div>
+        <p class="panel-note">A real Mac trial raised the window. This illustration does not control Studio.</p>
+      </aside>
+    </main>
+    <section class="section" aria-labelledby="walk-title"><h2 id="walk-title">Follow the key press</h2><div class="walk" role="group" aria-label="Shortcut walkthrough"><button type="button" data-stage="0" aria-pressed="false">01<strong>Before the press</strong></button><button type="button" data-stage="1" aria-pressed="false">02<strong>Studio comes forward</strong></button><button type="button" data-stage="2" aria-pressed="true">03<strong>Chat is raised</strong></button></div><p class="walk-desc" id="walk-desc" aria-live="polite">The selected machine keeps its existing chat. The cursor still needs a click.</p></section>
+    <section class="section"><h2>Why it helps</h2><div class="three"><div class="item"><b>Skip the hunt</b><p>Return from another app without finding Studio and its chat window by hand.</p></div><div class="item"><b>Follow the machine</b><p>The shortcut targets the machine currently selected in Studio.</p></div><div class="item"><b>Keep your place</b><p>Repeated presses focus an existing chat instead of making another window.</p></div></div></section>
+    <section class="section"><h2>What comes next</h2><div class="three"><div class="item"><b>Try the Mac demo</b><p>Use the temporary key binding to judge the feel on a real machine.</p></div><div class="item"><b>Make it a Studio action</b><p>Replace the prototype’s reliance on local logs and internal access.</p></div><div class="item"><b>Make typing immediate</b><p>Let chat focus its own input when the window is raised.</p></div></div></section>
+  </div>
+  <script>
+    const stages = [
+      { badge: '1 / Before the press', title: 'Another Mac app is in front', copy: 'Studio is behind it. The selected machine is Workspace-1.', description: 'The shortcut works even when you are using another Mac app.', chat: false, composer: 'Studio is behind the current app' },
+      { badge: '2 / Studio comes forward', title: 'Studio is visible', copy: 'The Mac foregrounds Studio while the helper locates the selected machine.', description: 'The prototype brings Studio forward first, so the response feels immediate.', chat: false, composer: 'Chat is still behind the current tab' },
+      { badge: '3 / Chat is raised', title: 'Chat is in front', copy: 'Your existing conversation is still here.', description: 'The selected machine keeps its existing chat. The cursor still needs a click.', chat: true, composer: 'Click here before typing…' },
+    ];
+    document.querySelectorAll('[data-stage]').forEach(button => button.addEventListener('click', () => {
+      const stage = stages[Number(button.dataset.stage)];
+      document.querySelectorAll('[data-stage]').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+      document.getElementById('stage-badge').textContent = stage.badge;
+      document.getElementById('stage-title').textContent = stage.title;
+      document.getElementById('stage-copy').textContent = stage.copy;
+      document.getElementById('walk-desc').textContent = stage.description;
+      document.getElementById('composer').textContent = stage.composer;
+      document.getElementById('chat-tab').classList.toggle('on', stage.chat);
+      document.getElementById('browser-tab').classList.toggle('on', !stage.chat);
+    }));
+  </script>
+  <!-- SHELL_PAGE_SCRIPT -->
+</body>
+</html>
